@@ -1,12 +1,13 @@
 package com.pcsalt.example.alertbuttonoverride;
 
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,23 +34,13 @@ public class MainActivity extends AppCompatActivity {
         // override the text color of positive button
         positiveButton.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
         // provides custom implementation to positive button click
-        positiveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onPositiveButtonClicked(alertDialog);
-            }
-        });
+        positiveButton.setOnClickListener(v -> onPositiveButtonClicked(alertDialog));
 
         Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
         // override the text color of negative button
         negativeButton.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
         // provides custom implementation to negative button click
-        negativeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onNegativeButtonClicked(alertDialog);
-            }
-        });
+        negativeButton.setOnClickListener(v -> onNegativeButtonClicked(alertDialog));
 
     }
 
